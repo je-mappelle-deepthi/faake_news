@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>UNICORN</title>
+</head>
+
+<body BGCOLOR="#110A76 ">
+<center>
+<h1>
+<span style="color:#C9B1FF">U</span>
+<span style="color:#FFCAF2">N</span>
+<span style="color:#FFB2B1">I</span>
+<span style="color:#FFF3AD">C</span>
+<span style="color:#BCFFBC">O</span>
+<span style="color:#A2EDFF">R</span>
+<span style="color:#c0bcff">N</span>
+<span style="color:#F8F7FC"><br>THE FAKE NEWS DETECTOR</span><hr size="4" width="40%" color="#0BF1F6">
+<span style="color:#C1BFE7">A project by Nethra, Praveen and Deepthi.<br>Guided by Dr. T S Suganya.</span><br><br>
+</h1>
+</center>
+<center>
+<div class="center">
+    <form action="{{ url_for('predict')}}" method="POST">
+    	<textarea  name="message" rows="6" cols="50" required="required"  style="font-size: 18pt"></textarea>
+		<br> </br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+        	<div class="center">
+
+	{% if prediction == ['FAKE']%}
+	<h2 style="color:#FF2300">OOOPS!! THE NEWS IS FAKE.</h2>
+	<h3 style="color:#FFB2B1">HOW TO SPOT AND AVOID FAKE NEWS<br></h3>
+	<h3 style="color:#0BF1F6" align="justify">1. Examine the Source.<br>2. Use Fact-Checking Resources.<br>3. Don't Share Without Thinking.<br>4. Consider the Article's Quality.</h3>
+	{% elif prediction == ['REAL']%}
+	<h2 style="color:#A3FF33;"><b>YAYYY! THE NEWS IS REAL.</b></h2>
+	<h3 style="color:#DAF7A6">HOW TO SPOT AND AVOID FAKE NEWS<br></h3>
+	<h3	style="color:#0BF1F6" align="justify">1. Examine the Source.<br>2. Use Fact-Checking Resources.<br>3. Don't Share Without Thinking.<br>4. Consider the Article's Quality.</h3>
+	{% endif %}
+
+</div>
+</form>
+</div>
+</center>
+</body>
+
+</html>
